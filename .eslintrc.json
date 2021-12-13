@@ -14,6 +14,13 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      { "allowTypedFunctionExpressions": true }
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
     "react/function-component-definition": [
       2,

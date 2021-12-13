@@ -1,6 +1,10 @@
 import React from 'react';
-import './App.css';
+import { Main } from './components/Main';
 
-const App: React.FC = () => <div className="App" />;
+const App: React.FC = () => (
+  <div className="App">
+    <Main />
+  </div>
+);
 
 export default App;
