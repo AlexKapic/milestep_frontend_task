@@ -1,9 +1,22 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
+import { IUser } from '../../common/interfaces';
 import { UserCard } from './UserCard';
 
-export const UsersContainer: React.FC = () => (
+type Props = {
+  users: IUser[] | undefined;
+};
+
+export const UsersContainer: React.FC<Props> = ({ users }) => (
   <Container>
-    <UserCard />
+    <Row>
+      {users &&
+        users.map((user, idx) => (
+          // eslint-disable-next-line
+          <Col key={idx} style={{ 'flex': '1 0 20%' }}>
+            <UserCard user={user} />
+          </Col>
+        ))}
+    </Row>
   </Container>
 );
