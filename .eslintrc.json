@@ -20,7 +20,8 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "class-methods-use-this": ["error", { "enforceForClassFields": false }],
+    "class-methods-use-this": "off",
+    "object-curly-newline": "off",
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "operator-linebreak": [
