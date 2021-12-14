@@ -13,7 +13,14 @@ type Props = {
 };
 
 export const FilterForm: React.FC<Props> = ({ applyFilter }) => {
+  const filters =
+    localStorage.getItem('SelectedOptions') &&
+    JSON.parse(localStorage.getItem('SelectedOptions') as string);
   const { control, handleSubmit } = useForm({
+    defaultValues: {
+      gender: filters?.gender,
+      nationality: filters?.nationality,
+    },
     mode: 'onChange',
   });
 
@@ -31,8 +38,6 @@ export const FilterForm: React.FC<Props> = ({ applyFilter }) => {
                 options={USER_GENDER_OPTIONS}
                 onChange={onChange}
                 value={value}
-                // value={options.find((c) => c.value === value)}
-                // onChange={(val) => onChange(val.value)}
               />
             )}
           />
@@ -49,8 +54,6 @@ export const FilterForm: React.FC<Props> = ({ applyFilter }) => {
                 options={USER_NATIONALITY_OPTIONS}
                 onChange={onChange}
                 value={value}
-                // value={options.find((c) => c.value === value)}
-                // onChange={(val) => onChange(val.value)}
               />
             )}
           />

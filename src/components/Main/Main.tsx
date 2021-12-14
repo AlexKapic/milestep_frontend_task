@@ -12,13 +12,21 @@ export const Main: React.FC = () => {
   const applyFilter: SubmitHandler<SelectFormValues> = (data): void => {
     const gender = data.gender.value;
     const nationality = data.nationality.map((el) => el.value).join(',');
+    localStorage.setItem('SelectedOptions', JSON.stringify(data));
     usersApi
       .getUsers(gender, nationality)
       .then((res) => setResults(res.results));
   };
 
   useEffect(() => {
-    usersApi.getUsers().then((res) => setResults(res.results));
+    const filters =
+      localStorage.getItem('SelectedOptions') &&
+      JSON.parse(localStorage.getItem('SelectedOptions') as string);
+    if (filters) {
+      applyFilter(filters);
+    } else {
+      usersApi.getUsers().then((res) => setResults(res.results));
+    }
   }, []);
 
   return (
