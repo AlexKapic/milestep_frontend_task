@@ -15,7 +15,7 @@ export const UserCard: React.FC<Props> = ({ user }) => (
       <Card.Title>
         {user.name.first}
         &nbsp;
-        {user.name.first}
+        {user.name.last}
       </Card.Title>
       <Card.Text>{user.gender}</Card.Text>
       <Card.Text>{moment(user.dob.date).format('YYYY-MM-DD')}</Card.Text>
