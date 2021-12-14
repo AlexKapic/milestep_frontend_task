@@ -26,8 +26,12 @@ export const FilterForm: React.FC<Props> = ({ applyFilter }) => {
 
   return (
     <Form onSubmit={handleSubmit(applyFilter)}>
-      <Row>
-        <Form.Group as={Col} controlId="formGender" className="col-lg-5">
+      <Row className="align-items-end justify-content-center">
+        <Form.Group
+          as={Col}
+          controlId="formGender"
+          className="col-lg-4 col-sm-6 col-12"
+        >
           <Form.Label>Gender</Form.Label>
           <Controller
             control={control}
@@ -42,7 +46,11 @@ export const FilterForm: React.FC<Props> = ({ applyFilter }) => {
             )}
           />
         </Form.Group>
-        <Form.Group as={Col} controlId="formNationality" className="col-lg-5">
+        <Form.Group
+          as={Col}
+          controlId="formNationality"
+          className="col-lg-4 col-sm-6 col-12"
+        >
           <Form.Label>Nationality</Form.Label>
           <Controller
             control={control}
@@ -58,7 +66,7 @@ export const FilterForm: React.FC<Props> = ({ applyFilter }) => {
             )}
           />
         </Form.Group>
-        <Col lg={2}>
+        <Col lg={3} xs={12} className="d-flex justify-content-center mt-2">
           <Button type="submit">Apply filter</Button>
         </Col>
       </Row>

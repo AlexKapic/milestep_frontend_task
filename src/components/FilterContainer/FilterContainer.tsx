@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const FilterContainer: React.FC<Props> = ({ applyFilter }) => (
-  <Container>
+  <Container className="mt-4">
     <FilterForm applyFilter={applyFilter} />
   </Container>
 );
